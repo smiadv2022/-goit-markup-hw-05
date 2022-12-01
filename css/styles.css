@@ -5,6 +5,8 @@
    --color-secondary:#757575;
    --background-secondary:#2F303A;
    --color-secondary-accent:#FFFFFF;
+   --cubic:cubic-bezier(0.4, 0, 0.2, 1);
+   --sec:820ms;
 }
 body{
    font-family: 'Roboto', sans-serif;
@@ -68,16 +70,23 @@ font-weight: 500;
 line-height: 1.14; 
 letter-spacing: 0.02em;
 color: var(--color-primary);
+transition: color var(--sec) var(--cubic);
 }
 
 .header-list-item:focus, .header-list-item:hover{
     color: var(--color-accent);
-}
+} 
 .header-li{
+  position: relative;
+  /* color: var(--color-primary); */
    margin-right: 30px;
    padding-top: 32px;
 padding-bottom: 32px;
+/* transition: color, 800ms, cubic-bezier(0.075, 0.82, 0.165, 1); */
 }
+/* .header-li:focus, .header-li:hover {
+  color: red;
+} */
 .header-li:nth-child(3){
    margin-right: 0;
 }
@@ -115,6 +124,7 @@ padding-bottom: 32px; */
 /* align-content: center; */
 fill: var(--color-secondary);
 color: var(--color-secondary);
+transition: color var(--sec) var(--cubic), fill var(--sec) var(--cubic);
 }
 .header-contac-list:focus, .header-contact-list:hover{
    color: var(--color-accent); 
@@ -122,6 +132,20 @@ color: var(--color-secondary);
 }
 .active-link{
   color: var(--color-accent);
+}
+.active-link::before {
+    display: block;
+  content: "";
+  color: var(--color-accent);
+
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #2196F3;
+  border-radius: 2px;
+bottom: 0;
+left: 0;
+
 }
 .header-link-icon{
  margin-right: 10px;
@@ -280,9 +304,35 @@ color: var(--color-secondary)
    ne: 2px solid blue;
 } */
 .job-item{
+  position: relative;
 flex-basis: calc(( 100% - 30px * 2 ) / 3 );
 margin-right: 30px;
 /* outline: 2px solid red; */
+}
+.job-item-detale{
+  display:block;
+  position: absolute;
+bottom: 0;
+  left: 0;
+width:100%;
+
+padding-top:  27px;
+padding-bottom:  27px;
+padding-left: auto;
+padding-right: auto;
+/* padding: 27px auto; */
+font-weight: 700;
+font-size: 14px;
+line-height: calc(16 / 14);
+text-align: center;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+  /* outline: 2px solid red; */
+ background-color:  rgba(47, 48, 58, 0.8);
+
 }
 .job-item:last-child{
   margin-right: 0;
@@ -368,10 +418,12 @@ color: var(--color-secondary);
   height: 100%;
   border-radius: 50%;
   fill: #AFB1B8; 
+  transition: fill var(--sec) var(--cubic), background-color var(--sec) var(--cubic), drop-shadow var(--sec) var(--cubic);
+
 }
 .team-social-link:hover, .team-social-link:focus {
   drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: #2196F3;
+  background-color: #2196F3;
   fill: #FFFFFF; 
 }
 .client-s{
@@ -419,6 +471,7 @@ color: #212121;
     height: 100%;
     border:1px #AFB1B8 solid;
     fill:  #AFB1B8;
+    transition: fill var(--sec) var(--cubic), border var(--sec) var(--cubic) , drop-shadow var(--sec) var(--cubic);
   }
   .client-link:hover,  .client-link:focus {
 
@@ -429,13 +482,13 @@ color: #212121;
 
 } 
   
-
+/* 
   .client .item:hover,  .client .item:focus {
     border: 1px solid #2196F3;
     border-radius: 4px;
   drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
-  } 
+  }  */
 
 
 .footer{
@@ -519,10 +572,11 @@ margin-bottom: 20px;
   height: 100%;
   border-radius: 50%;
   fill: #FFFFFF; 
+  transition:  background-color var(--sec)  var(--cubic);
 }
 
 .social-link:hover{
-  background: #2196F3;
+  background-color: #2196F3;
 }
 .portfolio{
   margin-top: 94px;
@@ -557,6 +611,7 @@ background-color: #F5F4FA;
 border-radius: 4px;
 border-color:transparent;
 padding: 6px 22px;
+transition: box-shadow var(--sec) var(--cubic), color var(--sec) var(--cubic), background-color var(--sec) var(--cubic);
 }
 .menu-btn:last-child{
   margin-right: 0;
@@ -592,14 +647,17 @@ background: #FFFFFF;
 border: 1px solid #EEEEEE;
 /* display:block;
 border-bottom: 1px solid red; */
+transition:box-shadow var(--sec) var(--cubic) ;
 }
 .portfolio-block-li:hover{
-  background: #FFFFFF;
+  /* background-color: #FFFFFF; */
   /* border: 1px solid #EEEEEE; */
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
   
 }
+.portfolio-img:{
 
+}
 
 .portfolio-block-li:nth-child(3n){
 margin-right: 0;
