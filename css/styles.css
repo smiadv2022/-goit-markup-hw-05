@@ -635,17 +635,18 @@ border-radius: 4px;
 }
 .portfolio-menu-li{
   margin-right: 8px;
+
 }
 .portfolio-menu-li:last-child{
   margin-right: 0;
 }
 .portfolio-block-li{
   
-  flex-basis:calc((100% - 2 * 31px ) / 3 );
+  flex-basis:calc ((100% - 2 * 30px - 6px) / 3 );
 margin-right: 30px;
 margin-bottom: 30px;
 background: #FFFFFF;
-border-bottom: 1px solid #EEEEEE;
+border: 1px solid #EEEEEE;
 /* display:block;
 border-bottom: 1px solid red; */
 transition:box-shadow var(--sec) var(--cubic) ;
@@ -659,7 +660,7 @@ transition:box-shadow var(--sec) var(--cubic) ;
 .portfolio-img-tumb{
   display: flex;
   position: relative;
- width: 370px;
+  width: 368px; 
   overflow: hidden;
 }
 .portfolio-img{
@@ -672,6 +673,7 @@ transition:box-shadow var(--sec) var(--cubic) ;
 }
 .portfolio-img-tumb:hover .portfolio-text-img {
   transform: translatey(0);
+  transition:transform  var(--sec) var(--cubic);
 
 }
 .portfolio-text-img{
@@ -765,12 +767,13 @@ transition: opacity var(--sec) var(--cubic);
   left: 50%;
   /* transform: translatey(-50%);
   transform: translatex(-50%); */
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) rotate(-360deg) scale(1);
   min-width: 528px;
   min-height: 581px;
   background-color: #FFFFFF;
 box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 border-radius: 4px;
+transition: opacity var(--sec) var(--cubic), transform var(--sec) var(--cubic);
 }
 
 .backdrop.is-hidden {
@@ -780,7 +783,7 @@ border-radius: 4px;
 .backdrop.is-hidden  .modal{
   opacity: 0; 
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(2);
+  transform: translate(-50%, -50%) rotate(360deg) scale(0);
   transition: opacity var(--sec) var(--cubic), transform var(--sec) var(--cubic);
   
   
