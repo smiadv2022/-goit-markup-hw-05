@@ -660,7 +660,7 @@ transition:box-shadow var(--sec) var(--cubic) ;
 .portfolio-img-tumb{
   display: flex;
   position: relative;
-  width: 368px; 
+  width: calc( ( 100% - 2px ) / 1);
   overflow: hidden;
 }
 .portfolio-img{
